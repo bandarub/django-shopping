@@ -1,0 +1,24 @@
+
+{% extends "shopping/base.html" %}
+{% block content %}
+<form id="searchform" action="{% url 'search' %}" method="get" value="{{request.GET.q}}">
+    <input class="searchfield" id="searchbox" name="q" type="text" placeholder="Search category....">
+    <button class="searchbutton" value="{{request.GET.q}}" type="submit">
+            <i class="fa fa-search"></i>
+    </button>
+</form>
+    {% for product in products %}
+    <article class="media content-section">
+            <div class="media-body">
+              <h2><a class="article-title" href="{% url 'product-detail' product.id %}">{{ product.name }}</a></h2>
+        <p class="article-content">Price: ${{product.price}}</p>
+        <p class="article-content">Category: {{product.category}}</p>
+         </div>
+        <a href="#" class="btn btn-success pull-right addcart" role="button">Add Cart</a>
+ 
+    </article>
+
+    {% endfor %}
+
+{% endblock content %}
+

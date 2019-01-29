@@ -1,0 +1,19 @@
+{% extends "shopping/base.html" %}
+{% block content %}
+<h4>Search results..... Go <a href="{% url 'shopping-home' %}">Home</a></h4>
+
+{% if books %}
+{% for book in books %}  
+<article class="media content-section">
+        <div class="media-body">
+          <h2><a class="article-title" href="{% url 'product-detail' book.id %}">{{ book.name }}</a></h2>
+    <p class="article-content">Price: ${{book.price}}</p>
+     </div>
+     <a href="#" class="btn btn-success pull-right addcart" role="button">Add Cart</a>
+
+</article>
+      
+{% endfor %}
+{% endif %}
+
+{% endblock content %}

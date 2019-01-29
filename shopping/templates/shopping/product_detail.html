@@ -1,0 +1,15 @@
+
+{% extends "shopping/base.html" %}
+{% block content %}
+<a href="{% url 'shopping-home' %}">Home</a>
+
+    <article class="media content-section">
+            <div class="media-body">
+              <h2>{{ object.name }}</h2>
+        <p class="article-content">{{object.description}}</p>
+        <p class="article-content">Price: ${{object.price}}</p>
+        </div>
+    </article>
+    <a href="#" class="btn btn-success pull-right addcart" role="button">Add To Cart</a>
+
+{% endblock content %}
